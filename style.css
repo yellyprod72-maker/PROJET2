@@ -1,0 +1,97 @@
+:root {
+    --page-width: 420px;
+    --page-height: 600px;
+    --paper-color: #fffef6;
+    --margin-color: rgba(200,0,0,0.4);
+    --line-color: rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background: linear-gradient(to bottom, #e6e6e6, #f8f8f8);
+    font-family: "Georgia", serif;
+}
+
+.notebook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    min-height: 100vh;
+}
+
+.page {
+    width: var(--page-width);
+  height: var(--page-height);
+  background-color: var(--paper-color);
+  border-radius: 8px;       
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+  position: relative;
+  overflow: hidden;          
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;  
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 28px,
+    var(--line-color) 28px,
+    var(--line-color) 29px
+  );
+  pointer-events: none; 
+}
+.page .content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 48px; /* distance depuis le bord gauche de la page */
+  width: 2px; /* épaisseur du trait */
+  background-color: var(--margin-color);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.page .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 32px 28px; /* espace autour du texte */
+  overflow: auto;     /* si texte dépasse, scroll */
+  font-size: 16px;
+  line-height: 1.5;   /* espacement des lignes */
+}
+.gutter {
+  width: 40px;
+  height: var(--page-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.content:focus {
+  outline: none; /* supprime le contour bleu du navigateur quand tu écris */
+  caret-color: black; /* couleur du curseur */
+}
+
+.page .content p {
+  margin: 0 0 1em 0; /* espace entre les paragraphes */
+}
+.page .content {
+  font-family: "Patrick Hand", cursive; /* style manuscrit */
+  font-size: 18px;
+}
+
+ 
+
+
