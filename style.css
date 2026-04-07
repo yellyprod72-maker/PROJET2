@@ -96,7 +96,7 @@ html, body {
     font-size: 20px;       /* taille du texte */
     padding: 15px 30px;    /* espace intérieur = bouton plus grand */
     border-radius: 10px;   /* coins arrondis */
-    background-color: aqua;
+    background-color: rgb(143, 153, 153);
     border: none;
     cursor: pointer;
  }
